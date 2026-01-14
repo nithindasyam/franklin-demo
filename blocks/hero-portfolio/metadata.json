@@ -1,0 +1,41 @@
+{
+  "variantName": "hero-portfolio",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-01-14T18:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.nithindasyam.com",
+    "originPage": "portfolio homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "portfolio-hero",
+    "imagePattern": "noimg",
+    "structure": "heading + quote + attribution"
+  },
+  "contentPattern": {
+    "structure": "heading + quote text",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "portfolio pages",
+      "personal websites",
+      "landing pages with quotes",
+      "dark-themed hero sections"
+    ],
+    "notSuitableFor": [
+      "product pages with images",
+      "light-themed pages",
+      "pages with CTA buttons in hero"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-14T18:50:00.000Z"
+  }
+}

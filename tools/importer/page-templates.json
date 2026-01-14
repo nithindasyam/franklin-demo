@@ -1,0 +1,30 @@
+{
+  "templates": [
+    {
+      "name": "portfolio-page",
+      "urls": ["https://www.nithindasyam.com"],
+      "description": "Personal portfolio page with hero, about, experience, skills, certifications, blog posts, and contact sections",
+      "blocks": [
+        {
+          "name": "hero-portfolio",
+          "instances": [".hero-container .hero"]
+        },
+        {
+          "name": "columns-simple",
+          "instances": [
+            "#about .row",
+            "#contact .g-4.row"
+          ]
+        },
+        {
+          "name": "cards-grid",
+          "instances": [
+            "#experience .g-4.row",
+            "#certifications .justify-content-center.row",
+            "#blogs .row"
+          ]
+        }
+      ]
+    }
+  ]
+}

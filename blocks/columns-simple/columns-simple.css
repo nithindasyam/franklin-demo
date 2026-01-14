@@ -1,0 +1,61 @@
+/* Columns Simple Variant - clean two-column layout */
+
+.columns-simple > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-simple img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.columns-simple > div > div {
+  order: 1;
+}
+
+.columns-simple > div > .columns-simple-img-col {
+  order: 0;
+}
+
+.columns-simple > div > .columns-simple-img-col img {
+  display: block;
+}
+
+.columns-simple h2,
+.columns-simple h3,
+.columns-simple h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.columns-simple p {
+  line-height: 1.7;
+  color: #444;
+}
+
+.columns-simple a {
+  color: var(--link-color, #0066cc);
+}
+
+@media (min-width: 900px) {
+  .columns-simple > div {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  .columns-simple > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-simple.columns-simple-2-cols > div > div:first-child {
+    flex: 0 0 35%;
+  }
+
+  .columns-simple.columns-simple-2-cols > div > div:last-child {
+    flex: 1;
+  }
+}

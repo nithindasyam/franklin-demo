@@ -1,0 +1,41 @@
+{
+  "variantName": "columns-simple",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-01-14T18:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.nithindasyam.com",
+    "originPage": "portfolio homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "content-layout",
+    "imagePattern": "side-image",
+    "structure": "image column + text column"
+  },
+  "contentPattern": {
+    "structure": "image | text paragraphs",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "about sections with photo",
+      "contact information layouts",
+      "feature descriptions with images",
+      "two-column text layouts"
+    ],
+    "notSuitableFor": [
+      "card grids",
+      "hero sections",
+      "full-width content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-14T18:50:00.000Z"
+  }
+}
