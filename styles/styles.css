@@ -10,78 +10,157 @@
  * governing permissions and limitations under the License.
  */
 
+/* Import modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
  :root {
-  /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: #fff;
-  --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
-  --text-color: #000;
+  /* Modern color palette */
+  --primary-color: #2563eb;
+  --primary-hover-color: #1d4ed8;
+  --primary-light-color: #dbeafe;
+  --background-color: #ffffff;
+  --surface-color: #f8fafc;
+  --surface-hover-color: #f1f5f9;
+  --border-color: #e2e8f0;
+  --border-hover-color: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Legacy color mappings for backward compatibility */
+  --link-color: var(--primary-color);
+  --link-hover-color: var(--primary-hover-color);
+  --overlay-background-color: var(--surface-color);
+  --highlight-background-color: var(--surface-hover-color);
+  --text-color: var(--text-primary);
 
-  /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  /* Modern typography using Inter */
+  --body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --fixed-font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  /* Responsive typography scale */
+  --body-font-size-xs: 0.75rem;   /* 12px */
+  --body-font-size-sm: 0.875rem;  /* 14px */
+  --body-font-size-base: 1rem;    /* 16px */
+  --body-font-size-lg: 1.125rem;  /* 18px */
+  --body-font-size-xl: 1.25rem;   /* 20px */
+  
+  /* Updated body sizes for compatibility */
+  --body-font-size-m: var(--body-font-size-lg);
+  --body-font-size-s: var(--body-font-size-base);
+  --body-font-size-xs: var(--body-font-size-sm);
 
-  /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  /* Modern heading scale */
+  --heading-font-size-xs: 0.875rem;  /* 14px */
+  --heading-font-size-sm: 1rem;      /* 16px */
+  --heading-font-size-base: 1.125rem; /* 18px */
+  --heading-font-size-lg: 1.25rem;   /* 20px */
+  --heading-font-size-xl: 1.5rem;    /* 24px */
+  --heading-font-size-2xl: 1.875rem; /* 30px */
+  --heading-font-size-3xl: 2.25rem;  /* 36px */
+  --heading-font-size-4xl: 3rem;     /* 48px */
+  --heading-font-size-5xl: 3.75rem;  /* 60px */
+  
+  /* Legacy heading sizes for compatibility */
+  --heading-font-size-xxl: var(--heading-font-size-4xl);
+  --heading-font-size-xl: var(--heading-font-size-3xl);
+  --heading-font-size-l: var(--heading-font-size-2xl);
+  --heading-font-size-m: var(--heading-font-size-xl);
+  --heading-font-size-s: var(--heading-font-size-lg);
 
-  /* nav height */
+  /* Spacing system */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+
+  /* Border radius */
+  --radius-sm: 0.125rem;  /* 2px */
+  --radius-base: 0.25rem; /* 4px */
+  --radius-md: 0.375rem;  /* 6px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-2xl: 1rem;     /* 16px */
+  --radius-full: 9999px;
+
+  /* Navigation */
   --nav-height: 64px;
-
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
+    --heading-font-size-xxl: var(--heading-font-size-5xl);
+    --heading-font-size-xl: var(--heading-font-size-4xl);
+    --heading-font-size-l: var(--heading-font-size-3xl);
+    --heading-font-size-m: var(--heading-font-size-2xl);
+    --heading-font-size-s: var(--heading-font-size-xl);
   }
 }
 
 body {
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-base);
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--text-primary);
   background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
   height: var(--nav-height);
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
   margin-top: 1em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   scroll-margin: calc(var(--nav-height) + 1em);
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+h1 { 
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+h2 { 
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+}
+h3 { 
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+}
+h4 { 
+  font-size: var(--heading-font-size-m);
+  font-weight: 500;
+}
+h5 { 
+  font-size: var(--heading-font-size-s);
+  font-weight: 500;
+}
+h6 { 
+  font-size: var(--heading-font-size-xs);
+  font-weight: 500;
+}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
@@ -92,109 +171,151 @@ hr {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   border: 0;
-  border-bottom: 1px solid var(--overlay-background-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 code, pre, samp {
   font-family: var(--fixed-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-sm);
 }
 
 code, samp {
-  padding: .125em;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--surface-color);
+  border-radius: var(--radius-base);
 }
 
 pre {
-  overflow: scroll;
+  overflow-x: auto;
+  background-color: var(--surface-color);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
 }
 
 main pre {
-  background-color: var(--overlay-background-color);
-  padding: 1em;
-  border-radius: .25em;
+  background-color: var(--surface-color);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
   overflow-x: auto;
   white-space: pre;
 }
 
 a:any-link {
-  color: var(--link-color);
+  color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--link-hover-color);
+  color: var(--primary-hover-color);
 }
 
-/* buttons */
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Modern buttons */
 a.button:any-link, button {
   font-family: var(--body-font-family);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
+  border: 1px solid transparent;
+  padding: var(--space-3) var(--space-6);
   text-align: center;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: var(--body-font-size-sm);
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
+  color: white;
+  background-color: var(--primary-color);
+  margin: var(--space-4) 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  min-height: 40px;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
+a.button:hover, a.button:focus, button:hover, button:focus {
+  background-color: var(--primary-hover-color);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+a.button:focus-visible, button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 button:disabled, button:disabled:hover {
-  background-color: var(--overlay-background-color);
-  cursor: unset;
+  background-color: var(--surface-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-sm);
 }
 
 a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color)
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+a.button.secondary:hover, button.secondary:hover {
+  background-color: var(--surface-color);
+  border-color: var(--border-hover-color);
 }
 
 main input {
-  font-size: 1.25rem;
+  font-size: var(--body-font-size-base);
   width: 100%;
   max-width: 50rem;
   display: block;
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;
-  border-radius: 0.25rem;
+  margin-bottom: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
   box-sizing: border-box;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   background-color: var(--background-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 main input:hover {
-  border: 1px solid var(--text-color);
+  border-color: var(--border-hover-color);
+}
+
+main input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light-color);
 }
 
 main blockquote {
   font-style: italic;
-  margin: 3rem;
-  text-indent: -1rem;
-  hanging-punctuation: first;
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  border-left: 4px solid var(--primary-color);
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
 }
 
 main blockquote p::before {
-  content: "“";
+  content: '"';
   line-height: 0;
 }
 
 main blockquote p::after {
-  content: "”";
+  content: '"';
   line-height: 0;
 }
 
@@ -202,6 +323,7 @@ main img {
   max-width: 100%;
   width: auto;
   height: auto;
+  border-radius: var(--radius-lg);
 }
 
 .icon {
@@ -216,12 +338,12 @@ main img {
 }
 
 main .section {
-  padding: 64px 16px;
+  padding: var(--space-16) var(--space-4);
 }
 
 @media (min-width: 600px) {
   main .section {
-    padding: 64px 32px;
+    padding: var(--space-16) var(--space-8);
   }
 }
 
@@ -232,13 +354,13 @@ main .section {
   }
 }
 
-/* progressive section appearance */
+/* Progressive section appearance */
 main .section[data-section-status='loading'],
 main .section[data-section-status='initialized'] {
   display: none;
 }
 
-/* section metadata */
+/* Section metadata */
 main .section.highlight {
-  background-color: var(--highlight-background-color);
+  background-color: var(--surface-color);
 }
