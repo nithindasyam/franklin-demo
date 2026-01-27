@@ -30,6 +30,14 @@ footer .footer h4 {
   letter-spacing: -0.025em;
 }
 
+footer .footer > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
 footer .footer p {
   margin: 0;
   line-height: 1.6;
