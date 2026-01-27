@@ -1,7 +1,7 @@
 footer {
   padding: var(--space-16) var(--space-4);
-  background: linear-gradient(135deg, var(--text-primary) 0%, rgba(15, 23, 42, 0.95) 100%);
-  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, var(--text-primary) 0%, rgb(15 23 42 / 95%) 100%);
+  color: rgb(255 255 255 / 90%);
   font-size: var(--body-font-size-base);
   border-top: 1px solid var(--border-color);
   margin-top: var(--space-16);
@@ -41,24 +41,7 @@ footer .footer > div > div {
 footer .footer p {
   margin: 0;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-footer .footer a:any-link {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-footer .footer a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-footer .footer a:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.8);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  color: rgb(255 255 255 / 80%);
 }
 
 /* Footer navigation links */
@@ -81,6 +64,20 @@ footer .footer ul li a {
   align-items: center;
   padding: var(--space-1) 0;
   font-size: var(--body-font-size-sm);
+  color: rgb(255 255 255 / 90%);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+footer .footer ul li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+footer .footer ul li a:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 80%);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* Social icons styling */
@@ -96,16 +93,34 @@ footer .footer ul li a:hover img {
   opacity: 1;
 }
 
+/* General footer links (non-list) */
+footer .footer a:any-link {
+  color: rgb(255 255 255 / 90%);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer .footer a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+footer .footer a:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 80%);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 /* Copyright and legal links */
 footer .footer .footer-legal {
   padding-top: var(--space-8);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgb(255 255 255 / 20%);
   text-align: center;
 }
 
 footer .footer .footer-legal p {
   font-size: var(--body-font-size-sm);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255 255 255 / 70%);
   margin-bottom: var(--space-4);
 }
 
@@ -118,7 +133,7 @@ footer .footer .footer-legal-links {
 
 footer .footer .footer-legal-links a {
   font-size: var(--body-font-size-sm);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
 }
 
 /* Responsive layout */
