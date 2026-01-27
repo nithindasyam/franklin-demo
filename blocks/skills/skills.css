@@ -1,0 +1,40 @@
+/* Skills block - grid of skill cards */
+.skills {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-4);
+}
+
+.skills .skill-card {
+  background-color: var(--text-primary);
+  color: white;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  font-size: var(--body-font-size-base);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills .skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 2 columns on tablet */
+@media (min-width: 600px) {
+  .skills .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 columns on desktop */
+@media (min-width: 900px) {
+  .skills .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
