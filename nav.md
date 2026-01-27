@@ -1,4 +1,4 @@
-# Nithin Dasyam
+[![Nithin Dasyam Logo](/content/images/logo.jpeg) Nithin Dasyam](/content/index)
 
 - [About](#about-me)
 - [Experience](#work-experience)
