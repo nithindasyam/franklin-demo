@@ -67,8 +67,9 @@ footer .footer ul {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  flex-direction: row;
+  gap: var(--space-4);
+  align-items: center;
 }
 
 footer .footer ul li {
@@ -76,9 +77,23 @@ footer .footer ul li {
 }
 
 footer .footer ul li a {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: var(--space-1) 0;
   font-size: var(--body-font-size-sm);
+}
+
+/* Social icons styling */
+footer .footer ul li a img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+footer .footer ul li a:hover img {
+  opacity: 1;
 }
 
 /* Copyright and legal links */
@@ -127,10 +142,5 @@ footer .footer .footer-legal-links a {
   footer .footer {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-8);
-  }
-
-  footer .footer ul {
-    flex-direction: column;
-    gap: var(--space-2);
   }
 }
