@@ -1,13 +1,12 @@
 /* Header and navigation layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
   z-index: 2;
   position: fixed;
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgb(255 255 255 / 95%);
 }
 
 header nav {
