@@ -1,0 +1,25 @@
+{
+  "total": 4,
+  "offset": 0,
+  "limit": 4,
+  "data": [
+    {
+      "name": "Skills",
+      "path": "/block-collection/skills"
+    },
+    {
+      "name": "Hero Portfolio",
+      "path": "/block-collection/hero-portfolio"
+    },
+    {
+      "name": "Cards Grid",
+      "path": "/block-collection/cards-grid"
+    },
+    {
+      "name": "Columns Simple",
+      "path": "/block-collection/columns-simple"
+    }
+  ],
+  "columns": ["name", "path"],
+  ":type": "sheet"
+}

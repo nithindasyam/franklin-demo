@@ -75,4 +75,83 @@ blocks/[block-name]/
 - Test responsive behavior
 - Validate accessibility compliance
 
+## Sidekick Library Maintenance
+
+This project includes a Sidekick Library that allows content authors to browse and preview blocks directly in the Sidekick extension.
+
+### Library Structure
+
+```
+tools/sidekick/
+└── library.json          # Block catalog (name + path)
+
+block-collection/
+├── skills.md             # Skills block examples & variations
+├── hero-portfolio.md     # Hero block examples
+├── cards-grid.md         # Cards block examples
+└── columns-simple.md     # Columns block examples
+```
+
+### When to Update the Library
+
+**IMPORTANT: Update the Sidekick Library whenever you:**
+1. Create a new block
+2. Add a new block variation
+3. Modify a block's authoring format
+4. Change a block's behavior significantly
+
+### Adding a New Block to the Library
+
+1. **Create a block collection page** at `/block-collection/{block-name}.md`:
+
+```markdown
++------------------------------------------------------------------------------------------------------+
+| **Library Metadata**                                                                                 |
++-------------+----------------------------------------------------------------------------------------+
+| name        | Block Name                                                                             |
++-------------+----------------------------------------------------------------------------------------+
+| description | Description of the block including implementation details, when to use, etc.           |
++-------------+----------------------------------------------------------------------------------------+
+
+[Your block example here]
+
+---
+
+[Additional variations separated by --- ]
+```
+
+2. **Update library.json** at `/tools/sidekick/library.json`:
+   - Add a new entry to the `data` array
+   - Increment the `total` count
+   - Example:
+   ```json
+   {
+     "name": "New Block",
+     "path": "/block-collection/new-block"
+   }
+   ```
+
+### Library Metadata Fields
+
+Each block example should include a `Library Metadata` table with:
+- **name**: Display name shown in Sidekick (required)
+- **description**: Detailed description with implementation notes (required)
+- **searchtags**: Comma-separated tags for searching (optional)
+
+### Block Variations
+
+Separate multiple variations with `---` (section break). Each variation should have its own `Library Metadata` with a unique name like "Block Name (Variation)".
+
+### Icons Reference
+
+Available icons in `/icons/` folder for the Skills block:
+- **Languages**: java, javascript, html, css
+- **Frameworks**: react, nodejs
+- **DevOps**: docker, kubernetes, git, maven, eslint
+- **Cloud/DB**: aws, mysql, apache
+- **Adobe**: adobe (for all Adobe products)
+- **Tools**: jira, sonarqube, api, code
+
+To add new icons, place SVG files in `/icons/{name}.svg`.
+
 This project follows AEM Edge Delivery Services best practices. Always prioritize performance, author experience, and maintainability in your development decisions.
