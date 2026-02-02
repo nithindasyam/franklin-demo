@@ -83,6 +83,7 @@ This project includes a Sidekick Library that allows content authors to browse a
 
 ```
 tools/sidekick/
+├── library.html          # Sidekick Library UI entry point
 └── library.json          # Block catalog (name + path)
 
 block-collection/
@@ -91,6 +92,10 @@ block-collection/
 ├── cards-grid.md         # Cards block examples
 └── columns-simple.md     # Columns block examples
 ```
+
+### Accessing the Library
+
+Open `/tools/sidekick/library.html` in a browser to preview the block library locally.
 
 ### When to Update the Library
 
