@@ -1,5 +1,5 @@
 footer {
-  padding: var(--space-16) var(--space-4);
+  padding: var(--space-8) var(--space-4);
   background: linear-gradient(135deg, var(--text-primary) 0%, rgb(15 23 42 / 95%) 100%);
   color: rgb(255 255 255 / 90%);
   font-size: var(--body-font-size-base);
@@ -10,15 +10,18 @@ footer {
 footer .footer {
   max-width: 1200px;
   margin: auto;
-  display: grid;
-  gap: var(--space-8);
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer .footer > div {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
 }
 
 footer .footer h3,
@@ -33,15 +36,16 @@ footer .footer h4 {
 footer .footer > div > div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-6);
 }
 
 footer .footer p {
   margin: 0;
   line-height: 1.6;
   color: rgb(255 255 255 / 80%);
+  white-space: nowrap;
 }
 
 /* Footer navigation links */
@@ -51,7 +55,7 @@ footer .footer ul {
   margin: 0;
   display: flex;
   flex-direction: row;
-  gap: var(--space-4);
+  gap: var(--space-3);
   align-items: center;
 }
 
@@ -97,51 +101,29 @@ footer .footer ul li a:hover img {
   opacity: 1;
 }
 
-/* Copyright and legal links */
-footer .footer .footer-legal {
-  padding-top: var(--space-8);
-  border-top: 1px solid rgb(255 255 255 / 20%);
-  text-align: center;
-}
-
-footer .footer .footer-legal p {
-  font-size: var(--body-font-size-sm);
-  color: rgb(255 255 255 / 70%);
-  margin-bottom: var(--space-4);
-}
-
-footer .footer .footer-legal-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-6);
-}
-
-footer .footer .footer-legal-links a {
-  font-size: var(--body-font-size-sm);
-  color: rgb(255 255 255 / 80%);
-}
+/* Single line footer - no separate legal section needed */
 
 /* Responsive layout */
 @media (min-width: 768px) {
   footer {
-    padding: var(--space-20) var(--space-8);
+    padding: var(--space-12) var(--space-8);
   }
 
-  footer .footer {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-12);
+  footer .footer > div {
+    gap: var(--space-8);
   }
 
   footer .footer ul {
-    flex-direction: row;
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 }
 
 @media (min-width: 1024px) {
-  footer .footer {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-8);
+  footer .footer > div {
+    gap: var(--space-12);
+  }
+
+  footer .footer ul {
+    gap: var(--space-6);
   }
 }
