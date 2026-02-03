@@ -346,6 +346,11 @@ main .section {
   padding: var(--space-16) var(--space-4);
 }
 
+/* Remove gap between fixed header and first section */
+main .section:first-child {
+  padding-top: 0;
+}
+
 @media (min-width: 600px) {
   main .section {
     padding: var(--space-16) var(--space-8);

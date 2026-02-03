@@ -87,6 +87,74 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Updates active navigation item based on current scroll position
+ */
+function updateActiveNavItem() {
+  const navLinks = document.querySelectorAll('nav .nav-sections a[href^="#"]');
+  const sections = document.querySelectorAll('main .section[id]');
+  
+  if (navLinks.length === 0 || sections.length === 0) return;
+  
+  let currentSection = '';
+  const scrollPosition = window.scrollY + 100; // Offset for header height
+  
+  // Find the current section based on scroll position
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      currentSection = section.id;
+    }
+  });
+  
+  // Update active states
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    const targetId = href.substring(1); // Remove the # from href
+    
+    if (targetId === currentSection) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+/**
+ * Sets up smooth scrolling for navigation links
+ */
+function setupSmoothScrolling() {
+  const navLinks = document.querySelectorAll('nav .nav-sections a[href^="#"]');
+  
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        const headerHeight = document.querySelector('header nav').offsetHeight;
+        const targetPosition = targetSection.offsetTop - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Close mobile menu if open
+        const nav = document.getElementById('nav');
+        if (nav && nav.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(nav, nav.querySelector('.nav-sections'), true);
+        }
+      }
+    });
+  });
+}
+
+/**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -144,5 +212,14 @@ export default async function decorate(block) {
     navWrapper.className = 'nav-wrapper';
     navWrapper.append(nav);
     block.append(navWrapper);
+    
+    // Set up navigation highlighting and smooth scrolling
+    setupSmoothScrolling();
+    
+    // Update active nav item on scroll
+    window.addEventListener('scroll', updateActiveNavItem, { passive: true });
+    
+    // Initial call to set active item
+    setTimeout(updateActiveNavItem, 100);
   }
 }
