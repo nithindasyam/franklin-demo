@@ -1,7 +1,14 @@
 {
-    "project": "franklin-asset-selector",
+    "project": "franklin-demo",
     "host": "main--franklin-demo--nithindasyam.hlx.live",
     "plugins": [
+        {
+            "id": "library",
+            "title": "Library",
+            "environments": ["edit"],
+            "url": "/tools/sidekick/library.html",
+            "includePaths": ["**.docx**"]
+        },
         {
             "id": "asset-library",
             "title": "My Assets",

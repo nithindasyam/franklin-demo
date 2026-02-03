@@ -160,3 +160,5 @@ Available icons in `/icons/` folder for the Skills block:
 To add new icons, place SVG files in `/icons/{name}.svg`.
 
 This project follows AEM Edge Delivery Services best practices. Always prioritize performance, author experience, and maintainability in your development decisions.
+
+When I report a bug, don't start by trying to fix it. Instead, start by writing a test that reproduces the bug. Then, have subagents try to fix the bug and prove it with a passing test.
