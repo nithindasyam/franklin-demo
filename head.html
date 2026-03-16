@@ -20,8 +20,8 @@
 <script src="https://experience.adobe.net/solutions/experience-platform-brand-concierge-web-agent/static-assets/main.js"></script>
 <script>
   const isConciergePage = window.location.href.toLowerCase().includes('concierge');
-  if (isConciergePage && !window.styleConfiguration) {
-    window.styleConfiguration = {
+  if (isConciergePage && !window.styleConfigurations) {
+    window.styleConfigurations = {
       metadata: {
         brandName: 'Adobe.com',
         version: '1.0.0',
@@ -34,7 +34,7 @@
         },
         chat: {
           messageAlignment: 'left',
-          messageWidth: '80%',
+          messageWidth: '100%',
         },
         privacyNotice: {
           title: 'Privacy Notice',
@@ -256,23 +256,23 @@
         },
       },
       theme: {
-        '--color-primary': '#1473e6',
-        '--color-primary-hover': '#0056b3',
-        '--color-button-primary': '#3B63FB',
-        '--color-accent': '#9085ED',
-        '--color-button-submit': '#4759e6',
-        '--color-button-submit-hover': '#3a4bce',
-        '--color-message-user': '#1473e6',
-        '--font-family': "'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif",
-        '--main-container-background': 'linear-gradient(135deg, #66ccff, #cc99ff, #ffcc99, #ccff99)',
-        '--main-container-background-size': '400% 400%',
-        '--main-container-animation': 'gradient 15s ease infinite',
-        '--main-container-bottom-background': 'linear-gradient(0deg, rgb(251, 217, 116) 170px, rgba(251, 217, 116, 0)) no-repeat',
+        '--color-primary': 'var(--primary-color)',
+        '--color-primary-hover': 'var(--primary-hover-color)',
+        '--color-button-primary': 'var(--primary-color)',
+        '--color-accent': 'var(--primary-hover-color)',
+        '--color-button-submit': 'var(--primary-color)',
+        '--color-button-submit-hover': 'var(--primary-hover-color)',
+        '--color-message-user': 'var(--primary-color)',
+        '--font-family': 'var(--body-font-family)',
+        '--main-container-background': 'var(--surface-color)',
+        '--main-container-background-size': 'auto',
+        '--main-container-animation': 'none',
+        '--main-container-bottom-background': 'none',
         '--submit-button-fill-color': 'white',
-        '--card-text-background': 'var(--color-background)',
-        '--card-text-margin': 'var(--spacing-sm)',
-        '--card-text-shadow': 'var(--shadow-card)',
-        '--card-text-border-radius': 'var(--border-radius-card)',
+        '--card-text-background': 'var(--background-color)',
+        '--card-text-margin': 'var(--space-3)',
+        '--card-text-shadow': 'var(--shadow-md)',
+        '--card-text-border-radius': 'var(--radius-lg)',
         '--welcome-header-order': '1',
         '--welcome-cards-order': '2',
         '--welcome-input-order': '3',
@@ -284,8 +284,8 @@
     };
   }
 
-  if (isConciergePage && !window.styleConfigurations) {
-    window.styleConfigurations = window.styleConfiguration;
+  if (isConciergePage && !window.styleConfiguration) {
+    window.styleConfiguration = window.styleConfigurations;
   }
 </script>
 <link rel="stylesheet" href="/styles/styles.css"/>

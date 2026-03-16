@@ -1,3 +1,21 @@
+.brand-concierge-container {
+  padding: 0;
+}
+
+.brand-concierge-container .brand-concierge-wrapper {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
 .brand-concierge #brand-concierge-mount {
   width: 100%;
+  min-height: calc(100vh - var(--nav-height));
+}
+
+@media (max-width: 767px) {
+  .brand-concierge #brand-concierge-mount {
+    min-height: auto;
+  }
 }
