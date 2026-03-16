@@ -16,8 +16,8 @@ export default function decorate(block) {
         defaultConsent: 'in',
         edgeDomain: 'edge.adobedc.net',
         edgeBasePath: 'ee',
-        datastreamId: 'be8284da-9263-4221-b560-de51dd10d34f',
-        orgId: '745F373C5EAB776E0A49421B@AdobeOrg',
+        datastreamId: 'fd4950f7-46e9-4075-85e9-5059197a48a0',
+        orgId: '2FBC7B975CFE21C40A495FBB@AdobeOrg',
         debugEnabled: true,
         idMigrationEnabled: false,
         thirdPartyCookiesEnabled: false,
@@ -41,9 +41,10 @@ export default function decorate(block) {
     }
 
     if (!window.brandConciergeBootstrapped) {
+      const stylingConfigurations = window.styleConfigurations || window.styleConfiguration;
       window.adobe.concierge.bootstrap({
         instanceName: 'alloy',
-        stylingConfiguration: window.styleConfiguration,
+        stylingConfigurations,
         selector: '#brand-concierge-mount',
       });
       window.brandConciergeBootstrapped = true;
