@@ -1,5 +1,292 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <script src="/scripts/lib-franklin.js" type="module"></script>
 <script src="/scripts/scripts.js" type="module"></script>
+<script>
+    !(function (n, o) {
+      o.forEach(function (o) {
+        n[o] ||
+          ((n.__alloyNS = n.__alloyNS || []).push(o),
+          (n[o] = function () {
+            var u = arguments;
+            return new Promise(function (i, l) {
+              n[o].q.push([i, l, u]);
+            });
+          }),
+          (n[o].q = []));
+      });
+    })(window, ["alloy"]);
+</script>
+<script src="https://cdn1.adoberesources.net/alloy/2.31.1/alloy.min.js"></script>
+<script src="https://experience.adobe.net/solutions/experience-platform-brand-concierge-web-agent/static-assets/main.js"></script>
+<script>
+  const isConciergePage = window.location.href.toLowerCase().includes('concierge');
+  if (isConciergePage && !window.styleConfiguration) {
+    window.styleConfiguration = {
+      metadata: {
+        brandName: 'Adobe.com',
+        version: '1.0.0',
+        language: 'en-US',
+        namespace: 'brand-concierge',
+      },
+      behavior: {
+        input: {
+          enableVoiceInput: true,
+        },
+        chat: {
+          messageAlignment: 'left',
+          messageWidth: '80%',
+        },
+        privacyNotice: {
+          title: 'Privacy Notice',
+          text: 'By using this automated chatbot, you consent that any personal information you provide in the chat may be collected, used, analyzed, disclosed, and retained by Adobe and its service providers, in accordance with the Adobe Privacy Policy. Please do not enter any sensitive personal information (e.g., financial or health data).',
+        },
+        disclaimer: {
+          attachWithInput: true,
+        },
+        chatTranscript: {
+          enabled: true,
+          maxSessions: 1,
+          maxMessagesPerSession: 20,
+          cleanupInterval: 24,
+        },
+        meetingForm: {
+          fieldsPerRow: 2,
+          fieldLayoutRules: {
+            textInputs: {
+              allowTwoColumns: true,
+              fieldTypes: ['string', 'email', 'tel', 'number'],
+            },
+            dropdowns: {
+              allowTwoColumns: false,
+              fieldTypes: ['select'],
+              identifyBy: 'hasOptions',
+            },
+            checkboxes: {
+              allowTwoColumns: false,
+              fieldTypes: ['boolean', 'checkbox'],
+            },
+          },
+          title: {
+            text: 'Schedule meeting',
+            alignment: 'left',
+          },
+          subtitle: {
+            text: "I'd be happy to help you schedule a meeting! Please fill out the form below, and we'll follow up with a calendar to confirm your day and time.",
+            alignment: 'left',
+          },
+          buttons: {
+            submit: {
+              text: 'Schedule meeting',
+              alignment: 'left',
+            },
+            cancel: {
+              text: 'Cancel',
+              alignment: 'left',
+            },
+          },
+        },
+        calendarWidget: {
+          title: {
+            text: 'Book a meeting',
+            alignment: 'left',
+          },
+          subtitle: {
+            text: "Thanks! Here's a calendar where you can choose a time that works best for your schedule:",
+            alignment: 'left',
+          },
+          postTitle: {
+            text: "Once confirmed, you'll receive a calendar invite with all the details. The specialist will already have this conversation context, so no need to repeat anything. Looking forward to connecting you with the right expert!",
+            alignment: 'left',
+          },
+          buttons: {
+            confirm: {
+              text: 'Schedule a meeting',
+              alignment: 'left',
+            },
+            cancel: {
+              text: 'Cancel',
+              alignment: 'left',
+            },
+          },
+        },
+      },
+      disclaimer: {
+        text: 'AI responses may be inaccurate or misleading. Be sure to double check answers and sources.',
+      },
+      text: {
+        'welcome.heading': "Not sure which apps are best for you?<br>Take a minute. We'll help you figure it out.",
+        'welcome.subheading': 'You can type in your idea or click on a suggestion to get started.',
+        'input.placeholder': 'Describe what you want to create',
+        'input.messageInput.aria': 'Message input',
+        'input.send.aria': 'Send message',
+        'input.mic.aria': 'Voice input',
+        'card.aria.select': 'Select example message',
+        'carousel.prev.aria': 'Previous cards',
+        'carousel.next.aria': 'Next cards',
+        'scroll.bottom.aria': 'Scroll to bottom',
+        'error.network': "I'm sorry, I'm having trouble connecting to our services right now. Please try again in a moment.",
+        'error.general': "I'm sorry, something went wrong. Please try again in a moment.",
+        'loading.message': "Generating from Adobe's trusted resources",
+        'feedback.dialog.title.positive': 'Your feedback is appreciated',
+        'feedback.dialog.title.negative': 'Your feedback is appreciated',
+        'feedback.dialog.question.positive': 'What went well? Select all that apply.',
+        'feedback.dialog.question.negative': 'What went wrong? Select all that apply.',
+        'feedback.dialog.notes': 'Notes',
+        'feedback.dialog.submit': 'Submit',
+        'feedback.dialog.cancel': 'Cancel',
+        'feedback.dialog.notes.placeholder': 'Additional notes (optional)',
+        'feedback.toast.success': 'Thank you for the feedback.',
+        'feedback.thumbsUp.aria': 'Thumbs up',
+        'feedback.thumbsDown.aria': 'Thumbs down',
+      },
+      arrays: {
+        'welcome.examples': [
+          {
+            text: 'I want to edit and enhance my photos',
+            image: 'https://www.adobe.com/cc-shared/assets/img/uar/bc/ideas-to-get-started-1-edit-photos.png',
+            backgroundColor: '#66BFE7',
+          },
+          {
+            text: 'I need to design a logo for my business',
+            image: 'https://www.adobe.com/cc-shared/assets/img/uar/bc/ideas-to-get-started-2-create-logo.png',
+            backgroundColor: '#F0BD7C',
+          },
+          {
+            text: "I'm looking for the best tools to edit videos",
+            image: 'https://www.adobe.com/cc-shared/assets/img/uar/bc/ideas-to-get-started-3-edit-videos.png',
+            backgroundColor: '#B89FF0',
+          },
+          {
+            text: 'I want to edit a PDF and add my signature',
+            image: 'https://www.adobe.com/cc-shared/assets/img/uar/bc/ideas-to-get-started-4-edit-pdf.png',
+            backgroundColor: '#B7CC4D',
+          },
+        ],
+        'feedback.positive.options': [
+          'Helpful and relevant recommendations',
+          'Clear and easy to understand',
+          'Friendly and conversational tone',
+          'Visually appealing presentation',
+          'Other',
+        ],
+        'feedback.negative.options': [
+          'Not helpful or relevant',
+          'Confusing or unclear',
+          'Too formal or robotic',
+          'Poor visual presentation',
+          'Other',
+        ],
+        'feedback.validation.positive.options': [
+          {
+            category: 'Response coverage and correctness',
+            options: [
+              "The response completely addressed the user's intents",
+              'The content of the response is factually correct',
+              'The content of the response is grounded in known information',
+            ],
+          },
+          {
+            category: 'Brand tone',
+            options: [
+              'The brand trait of being Friendly is projected in the response',
+              'The brand trait of being Smart is projected in the response',
+              'The brand trait of being Genuine is projected in the response',
+              'The brand trait of being Bold is projected in the response',
+            ],
+          },
+          {
+            category: 'Response quality',
+            options: [
+              'The response is well-structured semantically',
+              'The response is easy to follow',
+              'The response has clear and unambiguous communication',
+              'The response provides a diverse set of relevant information',
+            ],
+          },
+          {
+            category: 'Response Feature Feedback',
+            options: [
+              'The suggested questions were helpful',
+              'The suggested questions were natural',
+              'The deeplinks navigate correctly to the intended webpages',
+            ],
+          },
+        ],
+        'feedback.validation.negative.options': [
+          {
+            category: 'Response coverage and correctness',
+            options: [
+              "The response only partially addressed the user's intents",
+              "The response did not address the user's intents",
+              'The content of the response is factually incorrect',
+              'The content of the response is not grounded in known information',
+            ],
+          },
+          {
+            category: 'Brand tone',
+            options: [
+              'The response is completely off-brand',
+              'The response is robotic: monotonous, boilerplate, or unnecessarily dry language',
+              'The response is pandering: too focused on pleasing or engaging the user without responding to their intents or needs',
+              'The response is overly formal: the response is not conversation-friendly',
+            ],
+          },
+          {
+            category: 'Response quality',
+            options: [
+              'The response is not well-structured semantically',
+              'The response is not easy to follow',
+              'The response is unclear and ambiguous',
+              'The response is repetitive and lacks diversity',
+            ],
+          },
+          {
+            category: 'Response Feature Feedback',
+            options: [
+              'The suggested questions were unhelpful',
+              'The suggested questions were unnatural',
+              'The deeplinks navigate to incorrect webpages',
+            ],
+          },
+        ],
+      },
+      assets: {
+        icons: {
+          company: '<svg width="108" height="27" viewBox="0 0 108 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.4788 0.74586H17.8245L28.193 25.7322H20.435L13.8719 9.13678L9.54648 20.0253H14.694L16.7451 25.7322H0L10.4788 0.74586ZM36.8439 5.93011C37.5898 5.93011 38.4092 6.00365 39.2312 6.19011V0H45.7207V24.6134C44.229 25.2857 41.0223 26.1051 37.8156 26.1051C31.9984 26.1051 27.0007 22.7855 27.0007 16.1857C27.0007 9.58588 31.812 5.93011 36.8465 5.93011H36.8439ZM37.6659 20.7711C38.2621 20.7711 38.748 20.6582 39.2312 20.5111V11.4479C38.7453 11.2614 38.2621 11.1879 37.6265 11.1879C35.5019 11.1879 33.5243 12.7532 33.5243 16.0728C33.5243 19.3924 35.5387 20.7711 37.6633 20.7711H37.6659ZM57.2815 5.93011C62.689 5.93011 67.2771 9.58588 67.2771 15.9992C67.2771 22.4126 62.689 26.0683 57.2815 26.0683C51.874 26.0683 47.2492 22.4126 47.2492 15.9992C47.2492 9.58588 51.7979 5.93011 57.2815 5.93011ZM57.2815 20.6608C59.1462 20.6608 60.8611 19.1691 60.8611 15.9992C60.8611 12.8293 59.1462 11.3376 57.2815 11.3376C55.4169 11.3376 53.7387 12.8293 53.7387 15.9992C53.7387 19.1691 55.3433 20.6608 57.2815 20.6608ZM68.8423 0H75.3686V6.19011C76.1513 6.04041 76.9733 5.93011 77.7927 5.93011C82.864 5.93011 87.5624 9.24971 87.5624 15.7392C87.5624 22.6017 82.5646 26.0683 76.6345 26.0683C74.0975 26.0683 70.8541 25.5457 68.8397 24.6134V0H68.8423ZM76.7842 20.7344C79.0218 20.7344 81.0729 19.1297 81.0729 15.8128C81.0729 12.7164 79.0585 11.2641 76.8971 11.2641C76.3009 11.2641 75.8151 11.3376 75.3686 11.5241V20.4744C75.7416 20.6241 76.2274 20.7344 76.7868 20.7344H76.7842ZM98.64 5.93011C103.525 5.93011 108 9.06325 108 15.3663C108 16.2251 107.963 17.0445 107.85 17.8639H95.6933C96.3656 20.0647 98.3038 21.1073 100.728 21.1073C102.705 21.1073 104.531 20.6215 106.582 19.7285V24.6895C104.68 25.6586 102.406 26.0683 100.056 26.0683C93.8654 26.0683 89.0541 22.339 89.0541 15.9992C89.0541 9.65941 93.4163 5.93011 98.6373 5.93011H98.64ZM101.92 13.7984C101.584 11.6738 100.168 10.815 98.7135 10.815C97.2586 10.815 96.0662 11.7105 95.5804 13.7984H101.92Z" fill="white"/></svg>',
+        },
+      },
+      theme: {
+        '--color-primary': '#1473e6',
+        '--color-primary-hover': '#0056b3',
+        '--color-button-primary': '#3B63FB',
+        '--color-accent': '#9085ED',
+        '--color-button-submit': '#4759e6',
+        '--color-button-submit-hover': '#3a4bce',
+        '--color-message-user': '#1473e6',
+        '--font-family': "'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif",
+        '--main-container-background': 'linear-gradient(135deg, #66ccff, #cc99ff, #ffcc99, #ccff99)',
+        '--main-container-background-size': '400% 400%',
+        '--main-container-animation': 'gradient 15s ease infinite',
+        '--main-container-bottom-background': 'linear-gradient(0deg, rgb(251, 217, 116) 170px, rgba(251, 217, 116, 0)) no-repeat',
+        '--submit-button-fill-color': 'white',
+        '--card-text-background': 'var(--color-background)',
+        '--card-text-margin': 'var(--spacing-sm)',
+        '--card-text-shadow': 'var(--shadow-card)',
+        '--card-text-border-radius': 'var(--border-radius-card)',
+        '--welcome-header-order': '1',
+        '--welcome-cards-order': '2',
+        '--welcome-input-order': '3',
+        '--input-section-margin-top': '12px',
+        '--message-concierge-link-decoration': 'underline',
+        '--chat-history-padding-top-expanded': '0',
+        '--message-max-width': '100%',
+      },
+    };
+  }
+
+  if (isConciergePage && !window.styleConfigurations) {
+    window.styleConfigurations = window.styleConfiguration;
+  }
+</script>
 <link rel="stylesheet" href="/styles/styles.css"/>
 <link rel="icon" href="data:,">
