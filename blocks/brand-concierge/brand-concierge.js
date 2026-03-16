@@ -1,4 +1,9 @@
 export default function decorate(block) {
+  const isConciergePage = window.location.href.toLowerCase().includes('concierge');
+  if (!isConciergePage) {
+    return;
+  }
+
   block.textContent = '';
 
   const mount = document.createElement('div');
@@ -24,7 +29,7 @@ export default function decorate(block) {
         prehidingStyle: '.personalization-container { opacity: 0 !important }',
         onBeforeEventSend: (options) => {
           const params = new URLSearchParams(window.location.search);
-          const titleParam = params.get('filter');
+          const titleParam = params.get('title');
           const xdm = options.xdm || {};
           // eslint-disable-next-line no-underscore-dangle
           xdm._web = xdm._web || {};
@@ -41,7 +46,11 @@ export default function decorate(block) {
     }
 
     if (!window.brandConciergeBootstrapped) {
-      const stylingConfigurations = window.styleConfigurations || window.styleConfiguration;
+      const stylingConfigurations = window.styleConfigurations;
+      if (!stylingConfigurations) {
+        return false;
+      }
+
       window.adobe.concierge.bootstrap({
         instanceName: 'alloy',
         stylingConfigurations,
@@ -53,7 +62,20 @@ export default function decorate(block) {
     return true;
   };
 
-  if (!initBrandConcierge()) {
-    window.setTimeout(initBrandConcierge, 300);
-  }
+  let attempts = 0;
+  const maxAttempts = 20;
+  const retryDelayMs = 300;
+
+  const initializeWithRetry = () => {
+    if (initBrandConcierge()) {
+      return;
+    }
+
+    attempts += 1;
+    if (attempts < maxAttempts) {
+      window.setTimeout(initializeWithRetry, retryDelayMs);
+    }
+  };
+
+  initializeWithRetry();
 }
