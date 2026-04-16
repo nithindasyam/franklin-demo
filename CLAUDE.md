@@ -18,6 +18,7 @@ This project includes AI agent skills in the `.skills/` directory. These skills 
 - **content-driven-development.md**: Orchestrates complete block development workflow
 - **building-blocks.md**: JavaScript decoration patterns and CSS conventions
 - **content-modeling.md**: Design effective content structures for authors
+- **non-breaking-changes.md**: Regression-guard workflow to preserve existing features while implementing changes
 - **page-import.md**: Complete import workflow for migrating pages
 - **block-inventory.md**: Survey available blocks and capabilities
 - **docs-search.md**: Find AEM documentation and best practices

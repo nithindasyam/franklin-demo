@@ -50,6 +50,7 @@ This project includes specialized AI agent skills in the `.skills/` directory:
 ### Functional Skills
 - **Building Blocks**: JavaScript decoration patterns and CSS conventions
 - **Content Modeling**: Design effective content structures for authors
+- **Non-Breaking Changes**: Regression guard workflow to avoid breaking existing features during updates
 
 ### Research Skills
 - **Block Inventory**: Survey available blocks and capabilities
